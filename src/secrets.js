@@ -1,5 +1,5 @@
 const secrets = {
-  youtubeApiKey: 'AIzaSyDKPsICIwjRMt0EAd1qHGKFJofgsWcgaY4', //I will disable it later
+  youtubeApiKey: 'AIzaSyDKPsICIwjRMt0EAd1qHGKFJofgsWcgaY4',
 };
 
 const getSecret = (key) => secrets[key];
