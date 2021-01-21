@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import './App.css';
+
 import Header from '../components/Header';
 import CardContainer from '../components/CardContainer';
 import fetchYoutubeSearch from '../utils/fetchYoutubeSearch';
@@ -55,7 +57,16 @@ const App = () => {
         onSearchInputChange={onSearchInputChange}
         onSubmitBtnClick={onSubmitBtnClick}
       />
-      {!error && <CardContainer data={data} containerTitle={containerTitle} />}
+      <Switch>
+        <Route exact path="/">
+          {!error && (
+            <CardContainer data={data} containerTitle={containerTitle} />
+          )}
+        </Route>
+        <Route exact path="/watch">
+          <hi>video is here</hi>
+        </Route>
+      </Switch>
     </div>
   );
 };
