@@ -4,13 +4,18 @@ import './CardContainer.css';
 import Card from './Card';
 
 const CardContainer = (props) => {
-  const { data } = props;
+  const { data, containerTitle } = props;
 
   return (
-    <div className="cardContainer">
-      {data.map((item) => (
-        <Card {...item} />
-      ))}
+    <div>
+      <div className="cardContainer">
+        {data.length !== 0 && (
+          <h3 className="container-title">{`Result about: ${containerTitle}`}</h3>
+        )}
+        {data.map((item) => (
+          <Card {...item} />
+        ))}
+      </div>
     </div>
   );
 };
@@ -25,6 +30,7 @@ CardContainer.propTypes = {
       publishTime: PropTypes.string.isRequired,
     })
   ).isRequired,
+  containerTitle: PropTypes.string.isRequired,
 };
 
 export default CardContainer;

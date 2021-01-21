@@ -8,6 +8,7 @@ import fetchYoutubeSearch from '../utils/fetchYoutubeSearch';
 const App = () => {
   const [searchValue, setSearchValue] = useState('');
   const [data, setData] = useState([]);
+  const [containerTitle, setContainerTitle] = useState('');
   const [error, setError] = useState(null);
 
   const apiOptions = {
@@ -24,6 +25,7 @@ const App = () => {
     try {
       const re = await fetchYoutubeSearch('search', apiOptions);
       setData(re);
+      setContainerTitle(searchValue);
       // clear Input after done
       setSearchValue('');
     } catch (e) {
@@ -38,7 +40,7 @@ const App = () => {
         onSearchInputChange={onSearchInputChange}
         onSubmitBtnClick={onSubmitBtnClick}
       />
-      {!error && <CardContainer data={data} />}
+      {!error && <CardContainer data={data} containerTitle={containerTitle} />}
     </div>
   );
 };
