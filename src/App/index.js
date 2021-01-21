@@ -6,6 +6,7 @@ import './App.css';
 import Header from '../components/Header';
 import CardContainer from '../components/CardContainer';
 import fetchYoutubeSearch from '../utils/fetchYoutubeSearch';
+import Video from '../components/Video';
 
 const MAX_RESULTS = 50;
 const REGION_CODE = 'NA';
@@ -64,7 +65,7 @@ const App = () => {
           )}
         </Route>
         <Route exact path="/watch">
-          <hi>video is here</hi>
+          <Video />
         </Route>
       </Switch>
     </div>
